@@ -1,0 +1,33 @@
+:root {
+  /* Cores Base */
+  --cor-fundo-site: #f4f1ea;
+  --cor-sidebar: #2d1e18;
+  --cor-destaque: #127736;
+  --cor-destaque-hover: #213f2c;
+  
+  /* Textos */
+  --cor-texto-escuro: #2b2523;
+  --cor-texto-suave: #6e655f;
+  --cor-texto-branco: #ffffff;
+}
+
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CARDS DE RESUMO (AZUL, VERDE, VERMELHO) */
+.card-resumo {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #e2ded8;
+  border-left: 5px solid #ccc;
+}
+
+.destaque-azul { border-left-color: #3498db !important; }
+.destaque-verde { border-left-color: #2ecc71 !important; }
+.destaque-vermelho { border-left-color: #e74c3c !important; }

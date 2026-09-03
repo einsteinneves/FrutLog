@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>VitiLog - Dashboard</title>
+</head>
+<body>
+
+    <!-- BARRA LATERAL -->
+    <aside>
+        <div class="brand">VitiLog</div>
+        <ul class="menu">
+            <li><a href="#dashboard" class="active">Dashboard</a></li>
+            <li><a href="#clima">Clima</a></li>
+            <li><a href="#colheita">Colheita</a></li>
+            <li><a href="#compostagem">Compostagem</a></li>
+            <li><a href="#relatorio">Relatório</a></li>
+            <li><a href="#configuracoes">Configurações</a></li>
+        </ul>
+
+        <div class="footer-sindebar">
+            <a href="login.html" class="btn-sair">Sair</a>
+        </div>
+    </aside>
+
+    <!-- PAINEL PRINCIPAL -->
+    <main>
+        <section id="dashboard">
+            <div class="topo">
+                <h1>Monitoramento da Produção</h1>
+                <p>Acompanhamento dos produtos e desenvolvimento dos talhões.</p>
+            </div>
+
+            <div class="dashboard-grid">
+
+                <!-- Mapa do Talhão -->
+                <div class="cartao full-width">
+                    <div class="mapa-header">
+                        <div>
+                            <h2>Visão dos Talhões</h2>
+                            <p>Selecione um talhão para visualizar seus dados.</p>
+                        </div>
+                        <div class="botoes-do-talhao">
+                            <button class="btn-talhao active" data-talhao="A1">A1</button>
+                            <button class="btn-talhao" data-talhao="A2">A2</button>
+                            <button class="btn-talhao" data-talhao="B1">B1</button>
+                            <button class="btn-talhao" data-talhao="B2">B2</button>
+                        </div>
+                        <span class="status-mapa">● Monitoramento Ativo</span>
+                    </div>
+
+                    <div class="mapa-container">
+                        <img src="mapa-talhao.png" alt="Mapa dos talhões" class="mapa-imagem">
+                        <div class="legenda-mapa">
+                            <div class="legenda-item">
+                                <span class="legenda-normal"></span>
+                                <span>Outros talhões</span>
+                            </div>
+                            <div class="legenda-item">
+                                <span class="legenda-selecao"></span>
+                                <span>Talhão selecionado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Histórico de Colheitas -->
+                <div class="cartao full-width">
+                    <div class="header-grafico">
+                        <div>
+                            <h2>Histórico de Colheitas</h2>
+                            <p class="subtitulo-grafico">Acompanhe a evolução da produção ao longo dos anos.</p>
+                        </div>
+                        <div class="filtros-grafico">
+                            <button class="btn-filtro active">em Toneladas (t)</button>
+                            <button class="btn-filtro">em Sacas</button>
+                        </div>
+                    </div>
+
+                    <div class="container-grafico">
+                        <canvas id="graficoColheita"></canvas>
+                    </div>
+
+                    <div class="grid-resumo-colheita">
+                        <div class="card-resumo destaque-azul">
+                            <span class="titulo-resumo">ÚLTIMA COLHEITA</span>
+                            <div class="dados-resumo">
+                                <i class="fa-regular fa-clock icone-resumo"></i>
+                                <div>
+                                    <strong id="resumo-ultima-data">--/----</strong>
+                                    <p id="resumo-ultima-valor">-- Toneladas</p>
+                                </div>
+                            </div>
+                            <span class="rodape-resumo" id="resumo-ultima-media">Média: -- t/dia</span>
+                        </div>
+
+                        <div class="card-resumo destaque-verde">
+                            <span class="titulo-resumo">MENOR COLHEITA</span>
+                            <div class="dados-resumo">
+                                <i class="fa-solid fa-circle-arrow-down icone-resumo"></i>
+                                <div>
+                                    <strong id="resumo-menor-data">--/----</strong>
+                                    <p id="resumo-menor-valor">-- Toneladas</p>
+                                </div>
+                            </div>
+                            <span class="rodape-resumo" id="resumo-menor-media">Média: -- t/dia</span>
+                        </div>
+
+                        <div class="card-resumo destaque-vermelho">
+                            <span class="titulo-resumo">MAIOR COLHEITA</span>
+                            <div class="dados-resumo">
+                                <i class="fa-solid fa-circle-arrow-up icone-resumo"></i>
+                                <div>
+                                    <strong id="resumo-maior-data">--/----</strong>
+                                    <p id="resumo-maior-valor">-- Toneladas</p>
+                                </div>
+                            </div>
+                            <span class="rodape-resumo" id="resumo-maior-media">Média: -- t/dia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalhes do Talhão -->
+                <div class="cartao">
+                    <div class="titulo-cartao">Talhão A1 — Detalhes</div>
+                    <table>
+                        <tr><td>Área</td><td id="talhao-area">10 hectares</td></tr>
+                        <tr><td>Tipo de Solo</td><td id="talhao-solo">Arenoso</td></tr>
+                        <tr><td>Data de Plantio</td><td id="talhao-plantio">15/03/2026</td></tr>
+                        <tr><td>Previsão de Colheita</td><td id="talhao-colheita">20/10/2026</td></tr>
+                        <tr><td>Variedade</td><td id="talhao-produto">Uva Isabel</td></tr>
+                    </table>
+                </div>
+
+                <!-- Clima Em Tempo Real -->
+                <div class="cartao">
+                    <div class="titulo-cartao">Clima Em Tempo Real</div>
+                    <table>
+                        <tr><td>Temperatura</td><td id="temp-valor">-- °C</td></tr>
+                        <tr><td>Umidade</td><td id="umidade-valor">-- %</td></tr>
+                        <tr><td>Precipitação</td><td id="precipitacao-valor">-- mm</td></tr>
+                        <tr><td>Vento</td><td id="vento-valor">-- km/h</td></tr>
+                    </table>
+                </div>
+
+                <!-- Tabela com Sensores IoT -->
+                <div class="cartao full-width">
+                    <div class="titulo-cartao">Informações do Talhão</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Temperatura</th>
+                                <th>Umidade Ar</th>
+                                <th>Umidade Solo</th>
+                                <th>Chuva</th>
+                                <th>Previsão Colheita</th>
+                                <th>Qtd. Colhida</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-talhao">
+                            <tr>
+                                <td colspan="6" style="text-align: center; color: var(--cor-texto-suave);">
+                                    Carregando dados dos sensores...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
