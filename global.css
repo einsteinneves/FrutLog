@@ -27,7 +27,6 @@
   border: 1px solid #e2ded8;
   border-left: 5px solid #ccc;
 }
-
-.destaque-azul { border-left-color: #3498db !important; }
-.destaque-verde { border-left-color: #2ecc71 !important; }
-.destaque-vermelho { border-left-color: #e74c3c !important; }
+.destaque-vermelho { border-left-color: #ff0000 !important; } /*3° carde maior colheita*/
+.destaque-azul { border-left-color: #0515f7 !important; } /*1° card ultima colheita*/
+.destaque-amarelo { border-left-color: #ccbc2e !important; } /*2° card menor colheita*/

@@ -1,181 +1,296 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>VitiLog - Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>FrutLog - Dashboard</title>
 </head>
 <body>
 
-    <!-- BARRA LATERAL -->
-    <aside>
-        <div class="brand">VitiLog</div>
-        <ul class="menu">
-            <li><a href="#dashboard" class="active">Dashboard</a></li>
-            <li><a href="#clima">Clima</a></li>
-            <li><a href="#colheita">Colheita</a></li>
-            <li><a href="#compostagem">Compostagem</a></li>
-            <li><a href="#relatorio">Relatório</a></li>
-            <li><a href="#configuracoes">Configurações</a></li>
-        </ul>
+<!-- BARRA LATERAL -->
+<aside>
+    <div class="brand">FrutLog</div>
+    <ul class="menu">
+        <li><a href="#dashboard" class="active">Dashboard</a></li>
+        <li><a href="#clima">Clima</a></li>
+        <li><a href="#colheita">Colheita</a></li>
+        <li><a href="#relatorio">Relatório</a></li>
+    </ul>
 
-        <div class="footer-sindebar">
-            <a href="login.html" class="btn-sair">Sair</a>
+    <div class="footer-sindebar">
+        <a href="login.html" class="btn-sair">Sair</a>
+    </div>
+</aside>
+
+<!-- PAINEL PRINCIPAL -->
+<main>
+    <section id="dashboard">
+        <div class="topo">
+            <h1>Monitoramento da Produção</h1>
+            <p>Acompanhamento dos Produtos em Desenvolvimento Nos Talhões.</p>
         </div>
-    </aside>
 
-    <!-- PAINEL PRINCIPAL -->
-    <main>
-        <section id="dashboard">
-            <div class="topo">
-                <h1>Monitoramento da Produção</h1>
-                <p>Acompanhamento dos produtos e desenvolvimento dos talhões.</p>
+        <!-- CONTAINER LADO A LADO: MAPA + DETALHES -->
+        <div class="secao-mapa-detalhes">
+            
+            <!-- MAPA DO TALHÃO -->
+            <div class="cartao cartao-mapa-wrapper">
+                <div class="mapa-header">
+                    <div>
+                        <h2>Visão dos Talhões</h2>
+                        <p>Selecione um Talhão Para Visualizar seus Dados.</p>
+                    </div>
+                    <div class="botoes-do-talhao">
+                        <button class="btn-talhao active" data-talhao="A1">A1</button>
+                        <button class="btn-talhao" data-talhao="A2">A2</button>
+                        <button class="btn-talhao" data-talhao="B1">B1</button>
+                        <button class="btn-talhao" data-talhao="B2">B2</button>
+                    </div>
+                    <span class="status-mapa">● Monitoramento Ativo</span>
+                </div>
+
+                <div class="mapa-container">
+                    <img src="imagem/mapa-FrutLog.jpg" alt="Mapa aéreo dos talhões" class="mapa-imagem">
+
+                    <!-- SVG Único que contêm TODOS os talhões -->
+                    <svg class="camada-talhoes" viewBox="0 0 500 400" preserveAspectRatio="none">
+
+                    <!-- TALHÃO A1 (Verde) -->
+                    <polygon 
+                        class="talhao-mapa selecionado" 
+                        data-talhao="A1" 
+                        points="180,135 278,14 298,18 340,55 285,120 260,140 202,141" 
+                    />
+                    <g class="vertices-a1">
+                        <circle cx="180" cy="135" r="4" class="ponto-arrastavel" data-talhao="A1" data-index="0" />
+                        <circle cx="278" cy="14"  r="4" class="ponto-arrastavel" data-talhao="A1" data-index="1" />
+                        <circle cx="298" cy="18"  r="4" class="ponto-arrastavel" data-talhao="A1" data-index="2" />
+                        <circle cx="340" cy="55"  r="4" class="ponto-arrastavel" data-talhao="A1" data-index="3" />
+                        <circle cx="285" cy="120" r="4" class="ponto-arrastavel" data-talhao="A1" data-index="4" />
+                        <circle cx="260" cy="140" r="4" class="ponto-arrastavel" data-talhao="A1" data-index="5" />
+                        <circle cx="202" cy="141" r="4" class="ponto-arrastavel" data-talhao="A1" data-index="6" />
+                    </g>
+
+                    <!-- TALHÃO A2 (Azul) -->
+                    <polygon 
+                        class="talhao-mapa" 
+                        data-talhao="A2" 
+                        points="116,120 136,127 172,127 195,142 240,147 235,215 185,215 145,205 115,190" 
+                    />
+                    <g class="vertices-a2">
+                        <circle cx="116" cy="120" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="0" />
+                        <circle cx="136" cy="127" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="1" />
+                        <circle cx="172" cy="127" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="2" />
+                        <circle cx="195" cy="142" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="3" />
+                        <circle cx="240" cy="147" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="4" />
+                        <circle cx="235" cy="215" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="5" />
+                        <circle cx="185" cy="215" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="6" />
+                        <circle cx="145" cy="205" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="7" />
+                        <circle cx="115" cy="190" r="4" class="ponto-arrastavel" data-talhao="A2" data-index="8" />
+                    </g>
+
+                    <!-- TALHÃO B1 (Roxo) -->
+                    <polygon 
+                        class="talhao-mapa" 
+                        data-talhao="B1" 
+                        points="285,120 305,85 340,95 380,140 350,170 320,205 285,235 250,220 235,185 250,150 270,135" 
+                    />
+                    <g class="vertices-b1">
+                        <circle cx="285" cy="120" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="0" />
+                        <circle cx="305" cy="85"  r="4" class="ponto-arrastavel" data-talhao="B1" data-index="1" />
+                        <circle cx="340" cy="95"  r="4" class="ponto-arrastavel" data-talhao="B1" data-index="2" />
+                        <circle cx="380" cy="140" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="3" />
+                        <circle cx="350" cy="170" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="4" />
+                        <circle cx="320" cy="205" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="5" />
+                        <circle cx="285" cy="235" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="6" />
+                        <circle cx="250" cy="220" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="7" />
+                        <circle cx="235" cy="185" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="8" />
+                        <circle cx="250" cy="150" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="9" />
+                        <circle cx="270" cy="135" r="4" class="ponto-arrastavel" data-talhao="B1" data-index="10" />
+                    </g>
+
+                    <!-- TALHÃO B2 (Vermelho) -->
+                    <polygon 
+                        class="talhao-mapa" 
+                        data-talhao="B2" 
+                        points="75,85 115,120 160,130 200,105 220,85 280,5 230,5" 
+                    />
+                    <g class="vertices-b2">
+                        <circle cx="75"  cy="85"  r="4" class="ponto-arrastavel" data-talhao="B2" data-index="0" />
+                        <circle cx="115" cy="120" r="4" class="ponto-arrastavel" data-talhao="B2" data-index="1" />
+                        <circle cx="187" cy="107" r="4" class="ponto-arrastavel" data-talhao="B2" data-index="2" />
+                        <circle cx="230" cy="105" r="4" class="ponto-arrastavel" data-talhao="B2" data-index="3" />
+                        <circle cx="220" cy="85"  r="4" class="ponto-arrastavel" data-talhao="B2" data-index="4" />
+                        <circle cx="280" cy="5"   r="4" class="ponto-arrastavel" data-talhao="B2" data-index="5" />
+                        <circle cx="230" cy="5"   r="4" class="ponto-arrastavel" data-talhao="B2" data-index="6" />
+                    </g>
+                    </svg>
+                </div>
+
+<div class="legenda-mapa">
+    <div class="legenda-item">
+        <span class="legenda-normal"></span>
+        <span>Outros talhões</span>
+    </div>
+    <div class="legenda-item">
+        <span class="legenda-selecao"></span>
+        <span>Talhão selecionado</span>
+    </div>
+</div>
+</div>
+
+            <!-- DETALHES D Otalhao ao lado do mapa  -->
+<div class="cartao card-detalhes-elegante">
+    <div class="cabecalho-detalhes">
+        <span class="badge-status">Em Monitoramento</span>
+        <h2 class="titulo-talhao">Detalhes: Talhão A1</h2>
+    </div>
+
+    <div class="info-grid-detalhes">
+        <div class="item-detalhe">
+            <span class="label">Área</span>
+            <span class="valor" id="talhao-area">10 hectares</span>
+        </div>
+
+        <div class="item-detalhe">
+            <span class="label">Tipo de Solo</span>
+            <span class="valor" id="talhao-solo">Arenoso</span>
+        </div>
+
+        <div class="item-detalhe">
+            <span class="label">Data de Plantio</span>
+            <span class="valor" id="talhao-plantio">15/03/2026</span>
+        </div>
+
+        <div class="item-detalhe">
+            <span class="label">Previsão de Colheita</span>
+            <span class="valor" id="talhao-colheita">20/10/2026</span>
+        </div>
+
+        <div class="item-detalhe destaque-fruta">
+            <span class="label">Variedade Cultivada</span>
+            <span class="valor" id="talhao-produto">Uva Isabel</span>
+        </div>
+    </div>
+</div>
+
+</div> <!-- FIM CONTAINER LADO A LADO -->
+
+
+
+<!--Hilcer criar js para trazer informaçoes do IOT mensalmente 
+ajustar pro futuro banco de dados -->
+<div class="cartao full-width"> 
+    <div class="titulo-cartao">Informações do Talhão-Diário</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Temperatura</th>
+                <th>Umidade Ar</th>
+                <th>Umidade Solo</th>
+                <th>Chuva</th> 
+            </tr>
+    </table>
+</div>
+
+
+
+<!-- Tabela talhao mensal com Sensores IoT -->
+<div class="cartao full-width">
+<div class="titulo-cartao">Informações do Talhão-mensal</div>
+<table>
+    <thead>
+        <tr>
+            <th>Temperatura</th>
+            <th>Umidade Ar</th>
+            <th>Umidade Solo</th>
+            <th>Choveu </th>
+            <th>Previsão Colheita</th>
+            <th>Qtd. Colhida</th>
+        </tr>
+    </thead> 
+
+    <!-- hilccer ajusta o JS pra trazer indormaçoes do iot para esse grafico mensal e como um historico de dados que vem do grafico diario  -->
+    <tbody id="tabela-talhao">
+        <tr>
+            <td colspan="6" style="text-align: center; color: var(--cor-texto-suave);">
+                Carregando dados dos sensores...
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+        <!-- Histórico de Colheitas grafico anual -->
+<div class="cartao full-width">
+    <div class="header-grafico">
+        <div>
+            <h2>Histórico de Colheitas</h2>
+            <p class="subtitulo-grafico">Acompanhe a evolução da produção ao longo dos anos.</p>
+        </div>
+
+        <div class="filtros-grafico">
+            <button class="btn-filtro active">em Toneladas (t)</button>
+            <button class="btn-filtro">em Sacas</button>
+        </div>
+    </div>
+
+    <div class="container-grafico">
+        <canvas id="graficoColheita"></canvas>
+    </div>
+
+<div class="grid-resumo-colheita">
+    <div class="card-resumo destaque-vermelho">
+        <span class="titulo-resumo">ÚLTIMA COLHEITA</span>
+        <div class="dados-resumo">
+            <i class="fa-regular fa-clock icone-resumo"></i>
+            <div>
+                <strong id="resumo-ultima-data">--/----</strong>
+                <p id="resumo-ultima-valor">-- Toneladas</p>
             </div>
+        </div>
+        <span class="rodape-resumo" id="resumo-ultima-media">Média: -- t/dia</span>
+    </div>
 
-            <div class="dashboard-grid">
+    <div class="card-resumo destaque-amarelo">
+        <span class="titulo-resumo">MENOR COLHEITA</span>
+        <div class="dados-resumo">
+            <i class="fa-solid fa-circle-arrow-down icone-resumo"></i>
+        <div>
+            <strong id="resumo-menor-data">--/----</strong>
+            <p id="resumo-menor-valor">-- Toneladas</p>
+        </div>
+    </div>
+    <span class="rodape-resumo" id="resumo-menor-media">Média: -- t/dia</span>
+</div>
 
-                <!-- Mapa do Talhão -->
-                <div class="cartao full-width">
-                    <div class="mapa-header">
-                        <div>
-                            <h2>Visão dos Talhões</h2>
-                            <p>Selecione um talhão para visualizar seus dados.</p>
-                        </div>
-                        <div class="botoes-do-talhao">
-                            <button class="btn-talhao active" data-talhao="A1">A1</button>
-                            <button class="btn-talhao" data-talhao="A2">A2</button>
-                            <button class="btn-talhao" data-talhao="B1">B1</button>
-                            <button class="btn-talhao" data-talhao="B2">B2</button>
-                        </div>
-                        <span class="status-mapa">● Monitoramento Ativo</span>
-                    </div>
+<div class="card-resumo destaque-azul">
+    <span class="titulo-resumo">MAIOR COLHEITA</span>
+    <div class="dados-resumo">
+        <i class="fa-solid fa-circle-arrow-up icone-resumo"></i>
+        <div>
+            <strong id="resumo-maior-data">--/----</strong>
+            <p id="resumo-maior-valor">-- Toneladas</p>
+        </div>
+    </div>
+    <span class="rodape-resumo" id="resumo-maior-media">Média: -- t/dia</span>
+</div>
+</div>
+</div>
 
-                    <div class="mapa-container">
-                        <img src="mapa-talhao.png" alt="Mapa dos talhões" class="mapa-imagem">
-                        <div class="legenda-mapa">
-                            <div class="legenda-item">
-                                <span class="legenda-normal"></span>
-                                <span>Outros talhões</span>
-                            </div>
-                            <div class="legenda-item">
-                                <span class="legenda-selecao"></span>
-                                <span>Talhão selecionado</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- Clima Em Tempo Real -->
 
-                <!-- Histórico de Colheitas -->
-                <div class="cartao full-width">
-                    <div class="header-grafico">
-                        <div>
-                            <h2>Histórico de Colheitas</h2>
-                            <p class="subtitulo-grafico">Acompanhe a evolução da produção ao longo dos anos.</p>
-                        </div>
-                        <div class="filtros-grafico">
-                            <button class="btn-filtro active">em Toneladas (t)</button>
-                            <button class="btn-filtro">em Sacas</button>
-                        </div>
-                    </div>
 
-                    <div class="container-grafico">
-                        <canvas id="graficoColheita"></canvas>
-                    </div>
 
-                    <div class="grid-resumo-colheita">
-                        <div class="card-resumo destaque-azul">
-                            <span class="titulo-resumo">ÚLTIMA COLHEITA</span>
-                            <div class="dados-resumo">
-                                <i class="fa-regular fa-clock icone-resumo"></i>
-                                <div>
-                                    <strong id="resumo-ultima-data">--/----</strong>
-                                    <p id="resumo-ultima-valor">-- Toneladas</p>
-                                </div>
-                            </div>
-                            <span class="rodape-resumo" id="resumo-ultima-media">Média: -- t/dia</span>
-                        </div>
 
-                        <div class="card-resumo destaque-verde">
-                            <span class="titulo-resumo">MENOR COLHEITA</span>
-                            <div class="dados-resumo">
-                                <i class="fa-solid fa-circle-arrow-down icone-resumo"></i>
-                                <div>
-                                    <strong id="resumo-menor-data">--/----</strong>
-                                    <p id="resumo-menor-valor">-- Toneladas</p>
-                                </div>
-                            </div>
-                            <span class="rodape-resumo" id="resumo-menor-media">Média: -- t/dia</span>
-                        </div>
+</section>
+</main>
 
-                        <div class="card-resumo destaque-vermelho">
-                            <span class="titulo-resumo">MAIOR COLHEITA</span>
-                            <div class="dados-resumo">
-                                <i class="fa-solid fa-circle-arrow-up icone-resumo"></i>
-                                <div>
-                                    <strong id="resumo-maior-data">--/----</strong>
-                                    <p id="resumo-maior-valor">-- Toneladas</p>
-                                </div>
-                            </div>
-                            <span class="rodape-resumo" id="resumo-maior-media">Média: -- t/dia</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Detalhes do Talhão -->
-                <div class="cartao">
-                    <div class="titulo-cartao">Talhão A1 — Detalhes</div>
-                    <table>
-                        <tr><td>Área</td><td id="talhao-area">10 hectares</td></tr>
-                        <tr><td>Tipo de Solo</td><td id="talhao-solo">Arenoso</td></tr>
-                        <tr><td>Data de Plantio</td><td id="talhao-plantio">15/03/2026</td></tr>
-                        <tr><td>Previsão de Colheita</td><td id="talhao-colheita">20/10/2026</td></tr>
-                        <tr><td>Variedade</td><td id="talhao-produto">Uva Isabel</td></tr>
-                    </table>
-                </div>
-
-                <!-- Clima Em Tempo Real -->
-                <div class="cartao">
-                    <div class="titulo-cartao">Clima Em Tempo Real</div>
-                    <table>
-                        <tr><td>Temperatura</td><td id="temp-valor">-- °C</td></tr>
-                        <tr><td>Umidade</td><td id="umidade-valor">-- %</td></tr>
-                        <tr><td>Precipitação</td><td id="precipitacao-valor">-- mm</td></tr>
-                        <tr><td>Vento</td><td id="vento-valor">-- km/h</td></tr>
-                    </table>
-                </div>
-
-                <!-- Tabela com Sensores IoT -->
-                <div class="cartao full-width">
-                    <div class="titulo-cartao">Informações do Talhão</div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Temperatura</th>
-                                <th>Umidade Ar</th>
-                                <th>Umidade Solo</th>
-                                <th>Chuva</th>
-                                <th>Previsão Colheita</th>
-                                <th>Qtd. Colhida</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabela-talhao">
-                            <tr>
-                                <td colspan="6" style="text-align: center; color: var(--cor-texto-suave);">
-                                    Carregando dados dos sensores...
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
