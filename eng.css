@@ -1,0 +1,201 @@
+/* ========================================================
+   FRUTLOG
+   TELA DO AGRÔNOMO
+   eng.css
+
+   Este arquivo contém somente estilos exclusivos
+   da tela do Agrônomo.
+
+   Os componentes compartilhados, como:
+   - Sidebar
+   - Mapa
+   - Talhões
+   - Cards
+   - Detalhes
+   - Tabelas
+
+   ficam no dashboard.css.
+   ======================================================== */
+
+
+/* ========================================================
+   ÁREA PRINCIPAL DO AGRÔNOMO
+   ======================================================== */
+
+.eng-main {
+    margin-left: 250px;
+    flex: 1;
+    padding: 30px;
+}
+
+
+/* ========================================================
+   CARD DE CADASTRO DE PLANTIO
+   ======================================================== */
+
+.card-cadastro-plantio {
+
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e2ded8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+}
+
+/* ========================================================
+   CABEÇALHO DO CADASTRO
+
+   CORREÇÃO:
+   antes estava:
+   cabecalho-detalhes-casdastro
+
+   Agora:
+   cabecalho-detalhes-cadastro
+   ======================================================== */
+
+.cabecalho-detalhes-cadastro {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2ded8;
+}
+
+
+/* ========================================================
+   GRID DO FORMULÁRIO
+   ======================================================== */
+
+.info-grid-cadastro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+
+/* ========================================================
+   ITEM INDIVIDUAL DO CADASTRO
+   ======================================================== */
+
+.item-detalhe-cadastro {
+
+    background-color: #fcfbf9;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #eee9e0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ========================================================
+   LABEL DOS CAMPOS
+   ======================================================== */
+
+.item-detalhe-cadastro .label {
+
+    font-size: 0.75rem;
+
+    color: #888;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    margin-bottom: 6px;
+}
+
+
+/* ========================================================
+   CAMPOS DO FORMULÁRIO
+   ======================================================== */
+
+.campo-cadastro {
+
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: var(--cor-texto-escuro);
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+
+/* ========================================================
+   CAMPOS - FOCO
+   ======================================================== */
+
+.campo-cadastro:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 2px rgba(122, 79, 21, 0.10);
+}
+
+
+/* ========================================================
+   UNIDADE DA ÁREA
+   ======================================================== */
+
+.unidade-campo {
+    margin-top: 5px;
+    color: var(--cor-texto-suave);
+    font-size: 0.75rem;
+}
+
+
+/* ========================================================
+   ÁREA DO BOTÃO
+   ======================================================== */
+
+.area-botao-cadastro {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+
+/* ========================================================
+BOTÃO CADASTRAR PLANTIO
+   ======================================================== */
+
+.btn-cadastrar {
+    padding: 11px 22px;
+    background-color: var(--cor-destaque);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.btn-cadastrar:hover {
+    opacity: 0.9;
+}
+
+
+/* =====
+RESPONSIVIDADE DO CADASTRO====== */
+
+@media (max-width: 700px) {
+    .info-grid-cadastro {grid-template-columns: 1fr;
+}
+
+    .area-botao-cadastro {
+        justify-content: stretch;
+
+    }
+
+    .btn-cadastrar {
+        width: 100%;
+    }
+}
